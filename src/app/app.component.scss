@@ -1,7 +1,20 @@
+:root{
+  --color-red: #ea0000
+}
+
 .carousel{
   z-index: 1;
   overflow: hidden;
 }
+
+.bg-red{
+  background-color: #ea0000;
+}
+
+.text-red{
+  color: #ea0000;
+}
+
 /*
 .carousel:before{
   content: "";
@@ -14,8 +27,8 @@
 
 .carousel:before{
   content: "";
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
   position: absolute;
   top: 0%;
   right: 0%;

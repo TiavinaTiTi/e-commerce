@@ -2,3 +2,30 @@
 .fs-7{
   font-size: 12px;
 }
+
+@font-face {
+  font-family: Kavivanar;
+  src: url('./assets/font/Kavivanar-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Sacramento;
+  src: url('./assets/font/Sacramento-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: PermanentMarker;
+  src: url('./assets/font/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+.ff-permanentMarker{
+  font-family: PermanentMarker, SansSerif;
+}
+
+.ff-sacramento{
+  font-family: Sacramento, SansSerif;
+}
+
+.ff-kavivanar{
+  font-family: Kavivanar, SansSerif;
+}

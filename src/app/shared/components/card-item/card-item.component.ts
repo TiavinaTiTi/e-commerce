@@ -1,10 +1,14 @@
 import {Component, Input} from '@angular/core';
 import {ProductModel} from "../../../core/models/product.model";
+import {TitleCasePipe, UpperCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-card-item',
   standalone: true,
-  imports: [],
+  imports: [
+    TitleCasePipe,
+    UpperCasePipe
+  ],
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.scss'
 })

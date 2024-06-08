@@ -9,8 +9,8 @@
     </div>
     <div class="mt-4 d-flex justify-content-center">
       <div class="d-flex justify-content-center gap-1 shadow-sm py-1 px-1 rounded-pill">
-        @for(item of category;track $index){
-          <a routerLink="{{ item.root }}" routerLinkActive="bg-red text-light" class="btn btn-light rounded-pill fw-semibold" style="width: 100px;">{{ item.title }}</a>
+        @for(item of category; track $index){
+          <a (click)="changeCategory(item.title)" [ngClass]="(item.title === activecategory)? 'bg-red text-light' : ''" class="btn btn-light rounded-pill fw-semibold" style="width: 100px;">{{ item.title }}</a>
         }
       </div>
     </div>

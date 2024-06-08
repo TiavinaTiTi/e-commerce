@@ -1,10 +1,10 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {CardItemComponent} from "../../shared/components/card-item/card-item.component";
 import {ProductService} from "../../shared/services/productService/product.service";
 import {Observable} from "rxjs";
 import {ProductModel} from "../../core/models/product.model";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-menu-page',
@@ -13,12 +13,14 @@ import {AsyncPipe} from "@angular/common";
     RouterLink,
     RouterLinkActive,
     CardItemComponent,
-    AsyncPipe
+    AsyncPipe,
+    NgClass,
+    JsonPipe
   ],
   templateUrl: './menu-page.component.html',
   styleUrl: './menu-page.component.scss'
 })
-export class MenuPageComponent {
+export class MenuPageComponent{
 
   productService: ProductService = inject(ProductService)
 
@@ -28,6 +30,14 @@ export class MenuPageComponent {
     {title: 'Glace', root: '/ice'},
   ]
 
-  product$: Observable<ProductModel[]> = this.productService.getAllProduct();
+  categoryDefault: string = 'burger'
+  activecategory: string = 'burger'
+
+  product$: Observable<ProductModel[]> = this.productService.filterProduct(this.categoryDefault.toLowerCase());
+
+  changeCategory(category: string): Observable<ProductModel[]>{
+    this.activecategory = category;
+    return this.product$ = this.productService.filterProduct(category.toLowerCase());
+  }
 
 }

@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import {ProductModel} from "../../../core/models/product.model";
+import {Observable, of} from "rxjs";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+
+  dataInit: ProductModel[] = [
+    {id: 1, title: 'burger fromage', price: 10000, promotion: 0, rating: 4, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'burger', taste: ['Double Fromage', 'Viande Porc'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
+    {id: 2, title: 'burger love', price: 10000, promotion: 12000, rating: 3, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'burger', taste: ['1 acheter + 1 gratuit', 'Pack love'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
+    {id: 3, title: 'big burger', price: 15000, promotion: 0, rating: 4, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'burger', taste: ['Double fromage', 'Double poulet', '1 frite offert'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
+    {id: 4, title: 'burger poulet', price: 10000, promotion: 0, rating: 2, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'burger', taste: ['Poulet'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
+    {id: 5, title: 'burger charcuterie', price: 10000, promotion: 0, rating: 4, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'burger', taste: ['Charcuterie'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
+  ]
+
+  getAllProduct(): Observable<ProductModel[]>{
+    return of(this.dataInit)
+  }
+}

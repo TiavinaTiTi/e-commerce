@@ -1,0 +1,40 @@
+<section class="pt-section">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="ff-permanentMarker">Our Menu</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis <br>
+        deserunt dolore facilis odio, voluptates!
+      </p>
+    </div>
+    <div class="mt-4 d-flex justify-content-center">
+      <div class="d-flex justify-content-center gap-1 shadow-sm py-1 px-1 rounded-pill">
+        @for(item of category;track $index){
+          <a routerLink="{{ item.root }}" routerLinkActive="bg-red text-light" class="btn btn-light rounded-pill fw-semibold" style="width: 100px;">{{ item.title }}</a>
+        }
+      </div>
+    </div>
+    <div class="mt-4">
+      <div class="row row-cols-1 row-cols-md-2 row-gap-3">
+        @for (item of product$ | async; track item.id){
+          <div class="col">
+            <app-card-item [product]="item"></app-card-item>
+          </div>
+        }
+      </div>
+      <div class="mt-4 d-flex justify-content-center">
+        <nav class="d-flex justify-content-center align-items-center gap-1 border p-1 rounded-pill">
+          <a href="" class="btn btn-light btn-sm rounded-pill fw-semibold" style="width: 30px; height: 30px;">
+            <i class="bi-chevron-left"></i>
+          </a>
+          <a href="" class="btn btn-light btn-sm rounded-pill fw-semibold" style="width: 30px; height: 30px;">01</a>
+          <a href="" class="btn btn-light bg-red text-light btn-sm rounded-pill fw-semibold" style="width: 30px; height: 30px;">02</a>
+          <a href="" class="btn btn-light btn-sm rounded-pill fw-semibold" style="width: 30px; height: 30px;">03</a>
+          <a href="" class="btn btn-light btn-sm rounded-pill fw-semibold" style="width: 30px; height: 30px;">
+            <i class="bi-chevron-right"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

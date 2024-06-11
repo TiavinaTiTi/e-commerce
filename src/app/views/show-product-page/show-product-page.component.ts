@@ -1,19 +1,28 @@
-import {Component, Input} from '@angular/core';
-import {UpperCasePipe} from "@angular/common";
+import {Component, inject, Input} from '@angular/core';
+import {AsyncPipe, UpperCasePipe} from "@angular/common";
 import {ProductModel} from "../../core/models/product.model";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ProductService} from "../../shared/services/productService/product.service";
+import {toNumbers} from "@angular/compiler-cli/src/version_helpers";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-show-product-page',
   standalone: true,
   imports: [
-    UpperCasePipe
+    UpperCasePipe,
+    AsyncPipe
   ],
   templateUrl: './show-product-page.component.html',
   styleUrl: './show-product-page.component.scss'
 })
 export class ShowProductPageComponent {
 
-  starAll: number[] = [1,2,3,4,5,6]
-  @Input() product!: ProductModel
+  activeRoute:ActivatedRoute = inject(ActivatedRoute)
+  productService: ProductService = inject(ProductService)
+
+  starAll: number[] = Array.from(Array(6).keys())
+  private _id = (this.activeRoute.snapshot.paramMap.get('id')) ?? '0'
+  @Input() product$: Observable<ProductModel | undefined> = this.productService.getProductId(parseInt(this._id))
 
 }

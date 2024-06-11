@@ -26,6 +26,11 @@ export class ProductService {
     return of(this.dataInit)
   }
 
+  getProductId(id: number): Observable<ProductModel | undefined>{
+    const product: ProductModel | undefined = this.dataInit.find(value => value.id === id)
+    return of(product)
+  }
+
   // (Interne) parcours et selectionne en fonction du category
   private _loopFilterCategory(category: string){
     this.dataInit = []

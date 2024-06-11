@@ -4,5 +4,5 @@ import {ShowProductPageComponent} from "./views/show-product-page/show-product-p
 export const routes: Routes = [
   {path: '', redirectTo: '/menu', pathMatch: 'full'},
   {path: 'menu', component: MenuPageComponent},
-  {path: 'show?id=:id', component: ShowProductPageComponent},
+  {path: 'show/:id', component: ShowProductPageComponent},
 ];

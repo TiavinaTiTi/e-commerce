@@ -1,66 +1,72 @@
 <section class="pt-section">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-lg-2">
-      <div class="col bg-dark border border-5 border-light d-flex justify-content-center align-items-center">
-        <img src="assets/images/Flying-Burger-480x480.png" alt="burger" srcset="" class="" width="400" height="400">
+    <div class="container">
+      <div class="text-center pb-4">
+        <h2 class="ff-permanentMarker">Show product</h2>
+<!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, dolore</p>-->
       </div>
-      <div class="col">
-        <h4>{{ product.title | uppercase }}</h4>
-        <div class="d-flex mt-2">
-          @for (star of starAll; track $index){
-            @if(star <= product.rating){
-              <span class="bi-star-fill text-warning"></span>
-            } @else {
-              <span class="bi-star text-warning"></span>
-            }
-          }
-        </div>
-        <div class="fw-semibold fs-6">
-          Prix: <span>{{ product.price }} Ar</span>
-        </div>
-        <p class="fs-7 mt-4">
-          {{ product.shortDescription }}
-        </p>
-        <div class="mt-4">
-          <div class="d-flex align-items-center">
-            <label class="form-label me-2 fw-semibold">Quantiter :</label>
-            <button class="btn btn-sm bg-red text-light rounded-circle">
-              <i class="bi-dash"></i>
-            </button>
-            <input type="text" name="" id="" value="01" class="form-control mx-2 fw-semibold" style="width: 45px">
-            <button class="btn btn-sm bg-red text-light rounded-circle">
-              <i class="bi-plus"></i>
-            </button>
+      @if(product$ | async; as product){
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col bg-dark border border-5 border-light d-flex justify-content-center align-items-center">
+            <img src="assets/images/Flying-Burger-480x480.png" alt="burger" srcset="" class="" width="400" height="400">
+          </div>
+          <div class="col">
+            <h4>{{ product.title | uppercase }}</h4>
+            <div class="d-flex mt-2">
+              @for (star of starAll; track $index){
+                @if(star <= product.rating){
+                  <span class="bi-star-fill text-warning"></span>
+                } @else {
+                  <span class="bi-star text-warning"></span>
+                }
+              }
+            </div>
+            <div class="fw-semibold fs-6">
+              Prix: <span>{{ product.price }} Ar</span>
+            </div>
+            <p class="fs-7 mt-4">
+              {{ product.shortDescription }}
+            </p>
+            <div class="mt-4">
+              <div class="d-flex align-items-center">
+                <label class="form-label me-2 fw-semibold">Quantiter :</label>
+                <button class="btn btn-sm bg-red text-light rounded-circle">
+                  <i class="bi-dash"></i>
+                </button>
+                <input type="text" name="" id="" value="01" class="form-control mx-2 fw-semibold" style="width: 45px">
+                <button class="btn btn-sm bg-red text-light rounded-circle">
+                  <i class="bi-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="mt-4">
+              @for(taste of product.taste; track $index){
+                <div class="">
+                  <i class="bi-tag me-2"></i>
+                  <span class="fw-semibold">{{ taste }}</span>
+                </div>
+              }
+            </div>
+            <div class="mt-4">
+              <button class="btn btn-sm px-3 py-2 bg-red text-light fw-semibold rounded-pill">
+                <i class="bi-cart-check-fill me-1"></i>
+                Add pannier
+              </button>
+            </div>
           </div>
         </div>
-        <div class="mt-4">
-          @for(taste of product.taste){
+        <div class="mt-5">
+          <div class="d-flex gap-2">
             <div class="">
-              <i class="bi-tag me-2"></i>
-              <span class="fw-semibold">Lorem ipsum dolor sit amet.</span>
+              <a href="" class="btn btn-sm bg-red text-light rounded-pill fw-semibold fs-7 py-2" style="width: 125px">Description</a>
             </div>
-          }
+            <div class="">
+              <a href="" class="btn btn-sm btn-light rounded-pill fw-semibold fs-7 py-2" style="width: 125px">Review</a>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p> {{ product.description }} </p>
+          </div>
         </div>
-        <div class="mt-4">
-          <button class="btn btn-sm px-3 py-2 bg-red text-light fw-semibold rounded-pill">
-            <i class="bi-cart-check-fill me-1"></i>
-            Add pannier
-          </button>
-        </div>
-      </div>
+      }
     </div>
-    <div class="mt-5">
-      <div class="d-flex gap-2">
-        <div class="">
-          <a href="" class="btn btn-sm bg-red text-light rounded-pill fw-semibold fs-7 py-2" style="width: 125px">Description</a>
-        </div>
-        <div class="">
-          <a href="" class="btn btn-sm btn-light rounded-pill fw-semibold fs-7 py-2" style="width: 125px">Review</a>
-        </div>
-      </div>
-      <div class="mt-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem consectetur cumque deserunt dignissimos distinctio ducimus, facilis, fugiat id impedit iste iure laboriosam modi quaerat reiciendis sint, velit veniam? Ab aliquid amet atque blanditiis deserunt dignissimos dolore error excepturi facilis fuga, harum itaque iusto labore laudantium molestiae nam natus nisi quam ratione tempore temporibus tenetur unde voluptas. Corporis cum delectus dolor dolore harum inventore iste iure laudantium maxime molestiae officiis perferendis porro, provident quas quos sed similique temporibus tenetur unde vitae! Debitis natus nemo provident quam veniam! Aut consequuntur dignissimos quasi quia quo repudiandae? Commodi, iure, vitae! Accusantium, aperiam, ratione?</p>
-      </div>
-    </div>
-  </div>
 </section>

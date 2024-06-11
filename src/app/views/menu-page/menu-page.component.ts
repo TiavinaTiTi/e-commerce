@@ -5,6 +5,8 @@ import {ProductService} from "../../shared/services/productService/product.servi
 import {Observable} from "rxjs";
 import {ProductModel} from "../../core/models/product.model";
 import {AsyncPipe, JsonPipe, NgClass} from "@angular/common";
+import {CategoryService} from "../../shared/services/categoryService/category.service";
+import {CategoryModel} from "../../core/models/category.model";
 
 @Component({
   selector: 'app-menu-page',
@@ -23,17 +25,14 @@ import {AsyncPipe, JsonPipe, NgClass} from "@angular/common";
 export class MenuPageComponent{
 
   productService: ProductService = inject(ProductService)
+  categoryService: CategoryService = inject(CategoryService)
 
-  category = [
-    {title: 'Pizza', root: '/pizza'},
-    {title: 'Burger', root: '/burger'},
-    {title: 'Glace', root: '/ice'},
-  ]
+  category: CategoryModel[] = this.categoryService.getAllCategory()
 
-  categoryDefault: string = 'burger'
-  activecategory: string = 'burger'
 
-  product$: Observable<ProductModel[]> = this.productService.filterProduct(this.categoryDefault.toLowerCase());
+  activecategory: string = this.categoryService.getCategoryDefault().title
+
+  product$: Observable<ProductModel[]> = this.productService.filterProduct(this.activecategory.toLowerCase());
 
   changeCategory(category: string): Observable<ProductModel[]>{
     this.activecategory = category;

@@ -20,24 +20,21 @@ export class ProductService {
     {id: 8, title: 'glace chocolate', price: 5000, promotion: 0, rating: 6, shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', category: 'glace', taste: ['Charcuterie'], description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro', reviews: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolores molestiae necessitatibus optio quidem quod? Culpa dicta dolor doloremque porro'},
   ]
 
+  // Recupere tous les product
   getAllProduct(): Observable<ProductModel[]>{
     this.dataInit = this.dataSet
     return of(this.dataInit)
   }
 
-
+  // (Interne) parcours et selectionne en fonction du category
   private _loopFilterCategory(category: string){
-    /*for(let i = 0; i > this.dataSet.length; i++){
-      if(this.dataSet[i].category === category){
-        this.dataInit.push(this.dataSet[i])
-      }
-    }*/
     this.dataInit = []
     for( let product of this.dataSet){
       (product.category === category)? this.dataInit.push(product) : null
     }
   }
 
+  // Filtre tous les Product selon category
   filterProduct(category: string): Observable<ProductModel[]>{
     switch (category){
       case 'pizza':
@@ -53,7 +50,6 @@ export class ProductService {
         // this._loopFilterCategory('burger');
         break;
     }
-
     return of(this.dataInit)
   }
 

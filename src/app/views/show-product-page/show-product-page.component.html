@@ -1,16 +1,12 @@
 <section class="pt-section">
     <div class="container">
-      <div class="text-center pb-4">
-        <h2 class="ff-permanentMarker">Show product</h2>
-<!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, dolore</p>-->
-      </div>
       @if(product$ | async; as product){
         <div class="row row-cols-1 row-cols-lg-2">
           <div class="col bg-dark border border-5 border-light d-flex justify-content-center align-items-center">
             <img src="assets/images/Flying-Burger-480x480.png" alt="burger" srcset="" class="" width="400" height="400">
           </div>
           <div class="col">
-            <h4>{{ product.title | uppercase }}</h4>
+            <h4 class="ff-permanentMarker">{{ product.title | uppercase }}</h4>
             <div class="d-flex mt-2">
               @for (star of starAll; track $index){
                 @if(star <= product.rating){
@@ -29,11 +25,11 @@
             <div class="mt-4">
               <div class="d-flex align-items-center">
                 <label class="form-label me-2 fw-semibold">Quantiter :</label>
-                <button class="btn btn-sm bg-red text-light rounded-circle">
+                <button class="btn btn-sm bg-red text-light rounded-circle" (click)="subtractQuantity()">
                   <i class="bi-dash"></i>
                 </button>
-                <input type="text" name="" id="" value="01" class="form-control mx-2 fw-semibold" style="width: 45px">
-                <button class="btn btn-sm bg-red text-light rounded-circle">
+                <input type="number" [(ngModel)]="quantity" id="" class="form-control mx-2 fw-semibold" style="width: 75px">
+                <button class="btn btn-sm bg-red text-light rounded-circle" (click)="addQuantity()">
                   <i class="bi-plus"></i>
                 </button>
               </div>

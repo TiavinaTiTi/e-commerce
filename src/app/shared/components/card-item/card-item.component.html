@@ -5,15 +5,7 @@
         <img src="assets/images/Flying-Burger-480x480.png" class="bg-light me-3" alt="burger" srcset="" width="150" height="150">
       </div>
       <div class="pt-0 pt-lg-4">
-        <div class="d-flex">
-          @for (star of starAll; track $index){
-            @if(star <= product.rating){
-              <span class="bi-star-fill text-warning"></span>
-            } @else {
-              <span class="bi-star text-warning"></span>
-            }
-          }
-        </div>
+        <app-star-rating [rating]="product.rating"></app-star-rating>
         <div class="">
           <h4>
             {{ product.title | titlecase }}
@@ -21,7 +13,7 @@
           <p class="card-text fs-7">
             {{ product.shortDescription }}
           </p>
-          <a routerLink="/show/{{ product.id }}" class="text-red text-decoration-none fw-semibold">Shop Now</a>
+          <a routerLink="/show/{{product.id}}" class="text-red text-decoration-none fw-semibold">Shop Now</a>
         </div>
       </div>
     </div>

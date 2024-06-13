@@ -1,0 +1,9 @@
+<div class="d-flex">
+  @for (star of starAll; track $index){
+    @if(star < rating){
+      <span class="bi-star-fill text-warning"></span>
+    } @else {
+      <span class="bi-star text-warning"></span>
+    }
+  }
+</div>

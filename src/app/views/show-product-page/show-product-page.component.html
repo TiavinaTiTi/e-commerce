@@ -7,14 +7,8 @@
           </div>
           <div class="col">
             <h4 class="ff-permanentMarker">{{ product.title | uppercase }}</h4>
-            <div class="d-flex mt-2">
-              @for (star of starAll; track $index){
-                @if(star <= product.rating){
-                  <span class="bi-star-fill text-warning"></span>
-                } @else {
-                  <span class="bi-star text-warning"></span>
-                }
-              }
+            <div class="mt-2">
+              <app-star-rating [rating]="product.rating"></app-star-rating>
             </div>
             <div class="fw-semibold fs-6">
               Prix: <span>{{ product.price }} Ar</span>

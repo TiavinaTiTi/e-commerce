@@ -6,6 +6,7 @@ import {ProductService} from "../../shared/services/productService/product.servi
 import {toNumbers} from "@angular/compiler-cli/src/version_helpers";
 import {Observable} from "rxjs";
 import {FormsModule} from "@angular/forms";
+import {StarRatingComponent} from "../../shared/components/star-rating/star-rating.component";
 
 @Component({
   selector: 'app-show-product-page',
@@ -13,7 +14,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     UpperCasePipe,
     AsyncPipe,
-    FormsModule
+    FormsModule,
+    StarRatingComponent
   ],
   templateUrl: './show-product-page.component.html',
   styleUrl: './show-product-page.component.scss'

@@ -4,6 +4,8 @@ import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterOutlet} from '@ang
 import {delay, filter, interval, map, mergeMap, Observable, of, take, tap} from "rxjs";
 import {FormsModule} from "@angular/forms";
 import {NavbarComponent} from "./shared/components/navbar/navbar.component";
+import {FooterComponent} from "./shared/components/footer/footer.component";
+import {ServiceComponent} from "./shared/components/service/service.component";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,9 @@ import {NavbarComponent} from "./shared/components/navbar/navbar.component";
   imports: [
     CommonModule,
     RouterOutlet,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+    ServiceComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
